@@ -5,9 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
-  },
+  "start": "node server.js",
+  "dev": "nodemon"
+},
   "keywords": [
     "fundnest",
     "crowdfunding",
@@ -29,4 +29,5 @@
 "devDependencies": {
   "nodemon": "^3.1.14"
 }
+
 }
