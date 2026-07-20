@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import dotenv from "dotenv";
 
 import indexRoutes from "./routes/index.js";
 
-dotenv.config();
+import notFound from "./middlewares/notFound.js";
+import errorHandler from "./middlewares/errorHandler.js";
 
 const app = express();
 
@@ -30,14 +30,15 @@ app.use(cookieParser());
 app.use("/", indexRoutes);
 
 // ======================
-// 404 Route
+// 404 Middleware
 // ======================
 
-app.use((req, res) => {
-  res.status(404).json({
-    success: false,
-    message: "Route Not Found",
-  });
-});
+app.use(notFound);
+
+// ======================
+// Global Error Handler
+// ======================
+
+app.use(errorHandler);
 
 export default app;

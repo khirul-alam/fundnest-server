@@ -1,14 +1,17 @@
 import express from "express";
+import { successResponse } from "../utils/response.js";
 
 const router = express.Router();
 
-// Health Check Route
 router.get("/", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "FundNest Server is Running...",
-    version: "1.0.0",
-  });
+  return successResponse(
+    res,
+    {
+      server: "FundNest Backend",
+      status: "Running",
+    },
+    "Server is running successfully."
+  );
 });
 
 export default router;
