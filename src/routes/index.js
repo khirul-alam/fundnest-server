@@ -1,4 +1,7 @@
 import express from "express";
+
+import authRoutes from "./authRoutes.js";
+
 import { successResponse } from "../utils/response.js";
 
 const router = express.Router();
@@ -13,5 +16,7 @@ router.get("/", (req, res) => {
     "Server is running successfully."
   );
 });
+
+router.use("/auth", authRoutes);
 
 export default router;
