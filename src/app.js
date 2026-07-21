@@ -27,7 +27,7 @@ app.use(cookieParser());
 // Routes
 // ======================
 
-app.use("/", indexRoutes);
+app.use("/api/v1", indexRoutes);
 
 // ======================
 // 404 Middleware

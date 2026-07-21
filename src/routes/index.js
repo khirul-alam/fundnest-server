@@ -1,6 +1,7 @@
 import express from "express";
 
 import authRoutes from "./authRoutes.js";
+import campaignRoutes from "./campaignRoutes.js";
 
 import { successResponse } from "../utils/response.js";
 
@@ -18,5 +19,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/auth", authRoutes);
+router.use("/campaigns", campaignRoutes);
 
 export default router;
