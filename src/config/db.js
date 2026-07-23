@@ -13,8 +13,9 @@ const client = new MongoClient(uri, {
   },
 });
 
-export let db;
+let db = null;
 
+// Connect MongoDB
 export const connectDB = async () => {
   try {
     await client.connect();
@@ -29,4 +30,13 @@ export const connectDB = async () => {
     console.error(error.message);
     process.exit(1);
   }
+};
+
+// Get Database Instance
+export const getDB = () => {
+  if (!db) {
+    throw new Error("Database not connected.");
+  }
+
+  return db;
 };
